@@ -1,0 +1,56 @@
+<% if @customer.errors.any? %>
+<h2> the following errors prevented the article from getting created </h2>
+    <ul> 
+         <% @customer.errors.full_messages.each do |msg| %>
+        <li> 
+             <%= msg %>
+        </li>
+        <% end %>
+    </ul>
+<% end %>
+<%= form_for @customer do |f| %>
+    <p>
+        <%= f.label :firstname %><br/>
+        <%= f.text_field :firstname %>
+    </p>
+    <p>
+        <%= f.label :lastname %><br/>
+        <%= f.text_field :lastname %>
+    </p>
+      <p>
+        <%= f.label :email %><br/>
+        <%= f.text_field :email %>
+    </p>
+      <p>
+        <%= f.label :age %><br/>
+        <%= f.number_field :age %>
+    </p>
+      <p>
+        <%= f.label :address_line1 %><br/>
+        <%= f.text_area :address_line1 %>
+    </p>
+     <p>
+        <%= f.label :address_line2 %><br/>
+        <%= f.text_area :address_line2 %>
+    </p>
+     <p>
+        <%= f.label :city %><br/>
+        <%= f.text_field :city %>
+    </p>
+     <p>
+        <%= f.label :state %><br/>
+        <%= f.text_field :state %>
+    </p>
+     <p>
+        <%= f.label :zipcode %><br/>
+        <%= f.number_field :zipcode %>
+    </p>
+     <p>
+        <%= f.label :password %><br/>
+        <%= f.text_field :password %>
+    </p>
+    <p>
+        <%= f.submit%>
+    </p>
+
+<% end %>
