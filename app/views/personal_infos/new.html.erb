@@ -1,0 +1,51 @@
+<% if flash[:errors]%>
+<div><% flash[:errors].each do |error|%>
+    <p><%= error %></p>
+</div>
+<%end%>
+<%end%>
+
+<%= form_with model:@personal_info do |f|%>
+    <strong>personal info : </strong><br/><br/>
+    <%=f.label :first_name%>
+    <%=f.text_field :first_name%><br/>
+
+    <%=f.label :last_name%>
+    <%=f.text_field :last_name%><br/>
+
+    <%=f.label :email%>
+    <%=f.text_field :email, placeholder: "eg : example@gmail.com"%><br/>
+
+    <%=f.label :age%>
+    <%=f.number_field :age%><br/>
+
+    <br/><strong>education info : </strong><br/><br/>
+
+    <%=f.label :degree%>
+    <%=f.select(:degree, options_for_select([['B.E', 'B.E'], ['B.Tech', 'B.Tech'], ['M.E', 'M.E']]))%><br/>
+
+    <%=f.label :year_completed%>
+    <%=f.number_field :year_completed%><br/>
+    
+    <br/><strong>company info : </strong><br/><br/>
+
+    <%=f.label :company_name%>
+    <%=f.text_field :company_name%><br/>
+
+    <%=f.label :website%>
+    <%=f.text_field :website, placeholder: "eg : https://www.world4u.best"%><br/>
+
+    <br/><strong>login credentials : </strong><br/><br/>
+
+    <%=f.label :password%>
+    <%=f.password_field :password%><br/>
+
+    <%=f.label :password_confirmation%>
+    <%=f.password_field :password_confirmation%><br/>
+    
+    <%=f.label :user_name%>
+    <%=f.text_field :user_name%><br/>
+
+    <%=f.submit "submit"%>
+
+<%end%>
