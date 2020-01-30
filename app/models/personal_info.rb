@@ -10,6 +10,7 @@ class PersonalInfo < ApplicationRecord
     validates :password_confirmation ,presence: true     
     validates :user_name, uniqueness: {scope: :email}, exclusion: { in: %w{prince priyank}, message: "%{value} is reserved" }
     
+    
     with_options if: :first_name? do |gp|
         gp.validates :last_name, presence:true
         gp.validates :email,presence:true
